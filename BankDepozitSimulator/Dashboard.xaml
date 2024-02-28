@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="BankDepozitSimulator.Dashboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BankDepozitSimulator"
+             mc:Ignorable="d">
+    <Grid x:Name="dashboardMainGrid" Background="#FF2A333C" MinWidth="960">
+        <ToolBarPanel x:Name="menuToolBarPanel" Background="#FF343E4A" HorizontalAlignment="Left" Width="160" MouseEnter="menuMouseEnter" MouseLeave="menuMouseLeave">
+            <Label x:Name="userLabel" Content="user" Foreground="White" FontSize="15" Margin="0,0,0,20"/>
+            <Grid x:Name="dashboardOption" Cursor="Hand" Width="170" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseDown="dashboardMouseDown">
+                <Image HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="44" Source="/dashboard_icon.png"/>
+                <Label Content="Dashboard" Margin="47,0,0,0" VerticalAlignment="Center" Height="46" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="111" FontSize="15"/>
+            </Grid>
+            <Grid x:Name="tradesOption" Cursor="Hand" Width="170" HorizontalAlignment="Left" Margin="0,5,0,5" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseDown="MouseDown">
+                <Image HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="44" Source="/trades_icon.png"/>
+                <Label Content="Trades" Margin="47,0,0,0" VerticalAlignment="Center" Height="46" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="78" FontSize="15"/>
+            </Grid>
+            <Grid x:Name="accountOption" Cursor="Hand" Width="170" HorizontalAlignment="Left" Margin="0,5,0,5" MouseEnter="MouseEnter" MouseLeave="MouseLeave">
+                <Image HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="44" Source="/account_icon.png"/>
+                <Label Content="Account" Margin="47,0,0,0" VerticalAlignment="Center" Height="46" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="78" FontSize="15"/>
+            </Grid>
+            <Grid x:Name="statisticsOption" Cursor="Hand" Width="170" HorizontalAlignment="Left" Margin="0,5,0,5" MouseEnter="MouseEnter" MouseLeave="MouseLeave">
+                <Image HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="44" Source="/statistics_icon.png"/>
+                <Label Content="Statistics" Margin="47,0,0,0" VerticalAlignment="Center" Height="46" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="104" FontSize="15"/>
+            </Grid>
+            <Grid x:Name="reportsOption" Cursor="Hand" Width="170" MouseEnter="MouseEnter" MouseLeave="MouseLeave" Margin="0,5,0,5">
+                <Image HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="44" Source="/reports_icon.png"/>
+                <Label Content="Reports" Margin="47,0,0,0" VerticalAlignment="Center" Height="46" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="111" FontSize="15" MouseEnter="MouseEnter" MouseLeave="MouseLeave"/>
+            </Grid>
+            <Grid x:Name="settingsOption" Cursor="Hand" Width="170" HorizontalAlignment="Left" Margin="0,5,0,5" MouseEnter="MouseEnter" MouseLeave="MouseLeave">
+                <Image HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="44" Source="/settings_icon.png"/>
+                <Label Content="Settings" Margin="47,0,0,0" VerticalAlignment="Center" Height="46" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="111" FontSize="15"/>
+            </Grid>
+        </ToolBarPanel>
+        <Grid x:Name="rightMainGrid" Margin="165,0,0,0"/>
+    </Grid>
+</UserControl>
