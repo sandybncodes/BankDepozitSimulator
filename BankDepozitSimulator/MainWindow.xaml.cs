@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,13 +22,12 @@ namespace BankDepozitSimulator
     public partial class MainWindow : Window
     {
         Login login = new Login();
-        DatabaseConnection connection = new DatabaseConnection();
+        DatabaseConnection cnn = new DatabaseConnection();
         public MainWindow()
         {
             InitializeComponent();
-            connection.connect();
+            cnn.connect();
             
-            //Login login = new Login();
             login.loginButton.Click += LoginButtonClick;
             main_grid.Children.Add(login);
         }
@@ -37,17 +37,43 @@ namespace BankDepozitSimulator
             string username = login.usernameTextBox.Text;
             string password = login.passwordTextBox.Password;
 
-            if(username == "test" && password == "1234")
+            if (username != "" && password != "")
             {
-                main_grid.Children.Clear();
+                try
+                {
+                    string dbUsername = "";
+                    string dbPassword = "";
+                    string sqlQuery = $"SELECT username, password FROM USERS.ACCOUNTS WHERE username = '{username}'";
+                    SqlCommand sqlCommand = new SqlCommand(sqlQuery, cnn.connection);
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
-                Dashboard dashboard = new Dashboard();
-                dashboard.userLabel.Content = username + " " + password;
-                main_grid.Children.Add(dashboard);
+                    while (sqlDataReader.Read())
+                    {
+                        dbUsername = sqlDataReader["username"].ToString();
+                        dbPassword = sqlDataReader["password"].ToString();
+                    }
+
+                    if (dbUsername == username && dbPassword == password)
+                    {
+                        main_grid.Children.Clear();
+
+                        Dashboard dashboard = new Dashboard();
+                        dashboard.userLabel.Content = username + " " + password;
+                        main_grid.Children.Add(dashboard);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Incorrect username or password!", "Login error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Username and password should not be empty!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }
