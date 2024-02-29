@@ -96,6 +96,7 @@
     <Compile Include="dashboardFrame.xaml.cs">
       <DependentUpon>dashboardFrame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseConnection.cs" />
     <Compile Include="tradesFrame.xaml.cs">
       <DependentUpon>tradesFrame.xaml</DependentUpon>
     </Compile>

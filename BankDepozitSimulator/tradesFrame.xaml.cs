@@ -26,14 +26,14 @@ namespace BankDepozitSimulator
         }
 
         // TEST VALUES
-        private string TEST_DEPOSIT_TYPE = "Alegro";
-        private string TEST_CURRENCY = "DOLLAR";
-        private double TEST_INVESTED_AMT = 1845.23;
-        private double TEST_RATE_PCT = 3.40;
-        private double TEST_CHARGED_PCT = 78.67;
-        private double TEST_CHARGED_AMT = 23.45;
-        private double TEST_PROFIT_AMT = 126.78;
-        private string TEST_REIVEST = "NO";
+        private const string TEST_DEPOSIT_TYPE = "Alegro";
+        private const string TEST_CURRENCY = "DOLLAR";
+        private const double TEST_INVESTED_AMT = 1845.23;
+        private const double TEST_RATE_PCT = 3.40;
+        private const double TEST_CHARGED_PCT = 78.67;
+        private const double TEST_CHARGED_AMT = 23.45;
+        private const double TEST_PROFIT_AMT = 126.78;
+        private const string TEST_REIVEST = "NO";
 
         private Thickness COLUMNS_MARGIN = new Thickness(0, 15, 30, 0);
         private SolidColorBrush COLUMN_NAME_FOREGROUND = new SolidColorBrush(Color.FromRgb(18, 162, 177));

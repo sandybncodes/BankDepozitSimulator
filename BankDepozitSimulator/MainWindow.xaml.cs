@@ -21,9 +21,11 @@ namespace BankDepozitSimulator
     public partial class MainWindow : Window
     {
         Login login = new Login();
+        DatabaseConnection connection = new DatabaseConnection();
         public MainWindow()
         {
             InitializeComponent();
+            connection.connect();
             
             //Login login = new Login();
             login.loginButton.Click += LoginButtonClick;
