@@ -7,7 +7,8 @@
              mc:Ignorable="d">
     <Grid x:Name="dashboardMainGrid" Background="#FF2A333C" MinWidth="960">
         <ToolBarPanel x:Name="menuToolBarPanel" Background="#FF343E4A" HorizontalAlignment="Left" Width="160" MouseEnter="menuMouseEnter" MouseLeave="menuMouseLeave">
-            <Label x:Name="userLabel" Content="user" Foreground="White" FontSize="15" Margin="0,0,0,20"/>
+            <Image x:Name="logoImg" Height="100" Width="100" Source="/logo1.png"/>
+            <Label x:Name="userLabel" Content="user" Foreground="White" FontSize="15" Margin="0,0,0,20" HorizontalContentAlignment="Center"/>
             <Grid x:Name="dashboardOption" Cursor="Hand" Width="170" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseDown="dashboardMouseDown">
                 <Image HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="44" Source="/dashboard_icon.png"/>
                 <Label Content="Dashboard" Margin="47,0,0,0" VerticalAlignment="Center" Height="46" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="111" FontSize="15"/>

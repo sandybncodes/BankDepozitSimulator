@@ -58,7 +58,7 @@ namespace BankDepozitSimulator
                         main_grid.Children.Clear();
 
                         Dashboard dashboard = new Dashboard();
-                        dashboard.userLabel.Content = username + " " + password;
+                        dashboard.userLabel.Content = username;
                         main_grid.Children.Add(dashboard);
                     }
                     else

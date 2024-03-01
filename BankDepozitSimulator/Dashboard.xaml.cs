@@ -40,6 +40,7 @@ namespace BankDepozitSimulator
         {
             menuToolBarPanel.Width = 50;
             userLabel.Visibility = Visibility.Hidden;
+            logoImg.Visibility = Visibility.Hidden;
         }
         private void objectMouseEnter(Grid obj)
         {
@@ -87,6 +88,7 @@ namespace BankDepozitSimulator
         {
             menuToolBarPanel.Width = 160;
             userLabel.Visibility = Visibility.Visible;
+            logoImg.Visibility = Visibility.Visible;
         }
 
         private void menuMouseLeave(object sender, MouseEventArgs e)
