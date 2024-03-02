@@ -102,6 +102,7 @@
     <Compile Include="tradesFrame.xaml.cs">
       <DependentUpon>tradesFrame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <Page Include="basicInfo_Subsection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

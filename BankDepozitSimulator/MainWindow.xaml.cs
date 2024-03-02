@@ -34,6 +34,8 @@ namespace BankDepozitSimulator
 
         private void LoginButtonClick(object sender, RoutedEventArgs e)
         {
+            User user = new User();
+            
             string username = login.usernameTextBox.Text;
             string password = login.passwordTextBox.Password;
 
@@ -41,24 +43,40 @@ namespace BankDepozitSimulator
             {
                 try
                 {
+                    string dbSSN = "";
                     string dbUsername = "";
                     string dbPassword = "";
-                    string sqlQuery = $"SELECT username, password FROM USERS.ACCOUNTS WHERE username = '{username}'";
+                    int dbAccountID = 0;
+                    int dbBankAccountID = 0;
+                    int dbBankID = 0;
+                    //string sqlQuery = $"SELECT ssn, username, password FROM USERS.ACCOUNTS WHERE username = '{username}'";
+                    string sqlQuery = $"EXEC selectLoginCredentials @username = '{username}'";
                     SqlCommand sqlCommand = new SqlCommand(sqlQuery, cnn.connection);
                     SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
                     while (sqlDataReader.Read())
                     {
+                        dbSSN = sqlDataReader["ssn"].ToString();
                         dbUsername = sqlDataReader["username"].ToString();
                         dbPassword = sqlDataReader["password"].ToString();
+                        dbAccountID = int.Parse(sqlDataReader["account_id"].ToString());
+                        dbBankAccountID = int.Parse(sqlDataReader["bank_account_id"].ToString());
+                        dbBankID = int.Parse(sqlDataReader["bank_id"].ToString());
                     }
 
                     if (dbUsername == username && dbPassword == password)
                     {
+                        //user.setUserSSN(dbSSN);
+                        User.userSSN = dbSSN;
+                        User.username = dbUsername; 
+                        User.password = dbPassword;
+                        User.accountID = dbAccountID;
+                        User.bankAccountID = dbBankAccountID;
+                        User.bankID = dbBankID;
                         main_grid.Children.Clear();
 
                         Dashboard dashboard = new Dashboard();
-                        dashboard.userLabel.Content = username;
+                        dashboard.userLabel.Content = User.username;
                         main_grid.Children.Add(dashboard);
                     }
                     else

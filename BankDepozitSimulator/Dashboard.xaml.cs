@@ -98,6 +98,8 @@ namespace BankDepozitSimulator
 
         private void MouseDown(object sender, MouseButtonEventArgs e)
         {
+            User user = new User();
+            //MessageBox.Show(User.username);
             tradesFrame tradesFrame = new tradesFrame();
             rightMainGrid.Children.Clear();
             rightMainGrid.Children.Add(tradesFrame);
