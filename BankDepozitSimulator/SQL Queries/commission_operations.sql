@@ -20,9 +20,14 @@ CREATE TABLE commissions.BANK_ACCOUNTS (
 )
 GO
 
+-- BANK_ACCOUNT_ID (autoincrement), BANK_ID, ACCOUNT_ID, TITLE, COMMENTS,  CURRENT_BALANCE, [STATUS], CREATED_DATE, UPDATED_DATE, UPDATED_COMMENTS, TERMINATED_DATE
 INSERT INTO commissions.BANK_ACCOUNTS
 VALUES
 (9999, 1, 'Demo Title', 'test account', 2555.67, 10, '01-MAR-24', NULL, NULL, NULL)
+
+INSERT INTO commissions.BANK_ACCOUNTS
+VALUES
+(8888, 2, 'Demo Title', 'test account', 3000.59, 10, '01-MAR-24', NULL, NULL, NULL)
 
 SELECT * FROM commissions.BANK_ACCOUNTS
 
@@ -40,11 +45,22 @@ CREATE TABLE commissions.TRADES (
 )
 GO
 
+-- for john.doe
 INSERT INTO commissions.TRADES
 VALUES
 ('Demo Deposit', 'DOLLAR', 1, 1000.00, 3.44, 0.20, 34.40, 1.24, 'FALSE'),
 ('Demo Deposit', 'DOLLAR', 1, 15000.00, 3.44, 0.20, 105.34, 10.78, 'FALSE'),
 ('Demo Deposit', 'DOLLAR', 1, 23455.00, 3.44, 0.20, 498.78, 46.72, 'FALSE')
+
+-- for ana.doe
+INSERT INTO commissions.TRADES
+VALUES
+('Demo Deposit', 'DOLLAR', 2, 1000.00, 3.44, 0.20, 34.40, 1.24, 'FALSE'),
+('Demo Deposit', 'DOLLAR', 2, 15000.00, 3.44, 0.20, 105.34, 10.78, 'FALSE'),
+('Demo Deposit', 'DOLLAR', 2, 23455.00, 3.44, 0.20, 498.78, 46.72, 'TRUE'),
+('Demo Deposit', 'DOLLAR', 2, 0.00, 3.44, 0.20, 34.40, 1.24, 'FALSE'),
+('Demo Deposit', 'DOLLAR', 2, 999999999.99, 3.44, 0.20, 105.34, 10.78, 'TRUE'),
+('Demo Deposit', 'DOLLAR', 2, 18564783.89, 3.44, 0.20, 498.78, 46.72, 'FALSE')
 
 select * from commissions.TRADES
 GO
