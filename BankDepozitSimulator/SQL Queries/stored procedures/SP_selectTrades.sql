@@ -8,3 +8,5 @@ on a.ACCOUNT_ID = b.ACCOUNT_ID
 join commissions.TRADES c
 on b.BANK_ACCOUNT_ID = c.BANK_ACCOUNT_ID
 where a.ssn = @userSSN and a.ACCOUNT_ID = @userAccountID and b.BANK_ACCOUNT_ID = @bankAccountID;
+
+exec selectTrades @userSSN = '0000000000000', @userAccountID = 1, @bankAccountID = 1;

@@ -4,6 +4,8 @@
 CREATE SCHEMA users;
 GO
 
+use BankDepositSimulator;
+
 -- create table individuals under users chema
 CREATE TABLE USERS.INDIVIDUALS (
 	SSN VARCHAR(15) PRIMARY KEY,
@@ -31,3 +33,17 @@ CREATE TABLE USERS.ACCOUNTS (
 	TERM_DATE DATE
 )
 GO
+
+--DROP TABLE USERS.ACCOUNTS
+
+INSERT INTO USERS.INDIVIDUALS
+VALUES
+('0000000000000', 'john', 'doe', NULL, 10, '01-JAN-2002', '29-FEB-2024', NULL, 1),
+('1111111111111', 'ana', 'doe', 'jr', 10, '28-MAR-2002', '29-FEB-2024', NULL, 2)
+
+INSERT INTO USERS.ACCOUNTS
+VALUES
+('0000000000000', 'john.doe', '1234', '29-FEB-2024', 10, NULL, NULL),
+('1111111111111', 'ana.doe', '1111', '29-FEB-2024', 10, NULL, NULL)
+
+select * from users.ACCOUNTS where username = 'john.doe'
