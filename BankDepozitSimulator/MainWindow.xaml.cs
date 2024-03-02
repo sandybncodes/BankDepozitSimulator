@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,12 +21,13 @@ namespace BankDepozitSimulator
     public partial class MainWindow : Window
     {
         Login login = new Login();
-        DatabaseConnection cnn = new DatabaseConnection();
+        DatabaseConnection connection = new DatabaseConnection();
         public MainWindow()
         {
             InitializeComponent();
-            cnn.connect();
+            connection.connect();
             
+            //Login login = new Login();
             login.loginButton.Click += LoginButtonClick;
             main_grid.Children.Add(login);
         }
