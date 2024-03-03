@@ -258,10 +258,5 @@ namespace BankDepozitSimulator
             /*MessageBox.Show($"Trades selected successfully! \nCount = {count}\nUser = {User.username}, {User.accountID}, {User.bankAccountID}");*/
             tradesToolBarPanel.Height = count * contentHeight + count * 10;
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //selectTrades();
-        }
     }
 }

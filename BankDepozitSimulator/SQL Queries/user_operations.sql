@@ -1,5 +1,7 @@
 -- USERS
 
+use BankDepositSimulator;
+
 -- create user chema
 CREATE SCHEMA users;
 GO
@@ -46,4 +48,4 @@ VALUES
 ('0000000000000', 'john.doe', '1234', '29-FEB-2024', 10, NULL, NULL),
 ('1111111111111', 'ana.doe', '1111', '29-FEB-2024', 10, NULL, NULL)
 
-select * from users.ACCOUNTS where username = 'john.doe'
+select * from users.ACCOUNTS --where username = 'john.doe'
